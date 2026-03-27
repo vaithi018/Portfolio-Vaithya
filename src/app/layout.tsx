@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vaithya S | Portfolio",
   description: "DevOps Engineer and Digital Marketing Enthusiast",
+  verification: {
+    google: "IqUIqA9QQRWP74gxHG3uJRvNypQvkCNl_oPC-5uXPrw",
+  },
 };
 
 export default function RootLayout({
