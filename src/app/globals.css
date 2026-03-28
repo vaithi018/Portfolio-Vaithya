@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
+  --background: #3c7de7;
   --foreground: #ededed;
   --accent: #ffffff;
   --accent-glow: rgba(255, 255, 255, 0.1);
-  --glass: #111111;
-  --glass-border: #222222;
+  --glass: #3c7de7;
+  --glass-border: #3c7de7;
 }
 
 @theme inline {
@@ -34,9 +34,11 @@ body {
     border: 1px solid var(--glass-border);
     border-radius: 20px;
   }
+
   .glow-effect {
     box-shadow: none;
   }
+
   .text-glow {
     text-shadow: none;
   }
