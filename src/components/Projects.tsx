@@ -26,12 +26,13 @@ const projects = [
     live: "https://student-management-system-eight-brown.vercel.app"
   },
   {
-    title: "AWS Automated CI/CD Pipeline",
-    description: "Built a fully automated CI/CD pipeline using Jenkins, Docker, and AWS CodeDeploy. Reduced deployment time by 40%.",
-    techStack: ["AWS EC2", "Jenkins", "Docker", "Git"],
-    github: "#",
-    live: "#"
+    title: "Go World",
+    description: "An immersive travel-themed front-end experience featuring high-definition video backgrounds, sleek glassmorphism components, and a premium responsive design.",
+    techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
+    github: "https://github.com/vaithi018/Go-World",
+    live: "https://go-world-beige.vercel.app"
   }
+
 ];
 
 export default function Projects() {
