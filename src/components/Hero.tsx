@@ -9,11 +9,31 @@ export default function Hero() {
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="flex flex-col items-center justify-center gap-12 w-full max-w-4xl mx-auto">
           
+          {/* Profile Image */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8 }}
+            className="w-40 h-40 md:w-48 md:h-48 rounded-full border-4 border-accent/20 p-2 relative overflow-visible"
+          >
+            <div className="absolute inset-0 rounded-full border-2 border-accent/40 animate-[spin_10s_linear_infinite] border-dashed"></div>
+            <div className="w-full h-full rounded-full overflow-hidden relative z-10 border-2 border-accent/10">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img 
+                src="/profile.jpg" 
+                alt="VAITHYA" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            {/* Subtle glow behind image */}
+            <div className="absolute inset-4 rounded-full bg-accent/10 blur-2xl -z-10"></div>
+          </motion.div>
+
           {/* Text Content */}
           <motion.div 
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
+            transition={{ delay: 0.2, duration: 0.8 }}
             className="flex-1 text-center space-y-6 flex flex-col items-center"
           >
             <motion.h2 
