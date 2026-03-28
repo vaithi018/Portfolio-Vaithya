@@ -31,7 +31,7 @@ export default function Certificates() {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="certificates" className="py-24 relative bg-glassmorphism overflow-hidden">
+    <section id="certificates" className="py-24 relative bg-black overflow-hidden">
       {/* Decorative gradient orb */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] rounded-full bg-accent/5 blur-[120px] -z-10"></div>
       
@@ -61,7 +61,7 @@ export default function Certificates() {
               viewport={{ once: true }}
               transition={{ delay: index * 0.2, duration: 0.5 }}
               whileHover={{ scale: 1.05 }}
-              className="relative group cursor-pointer aspect-[4/3] rounded-xl overflow-hidden glassmorphism border-transparent hover:border-accent/40"
+              className="relative group cursor-pointer aspect-[4/3] rounded-xl overflow-hidden bg-[#111111] border border-white/5 hover:border-accent/40"
               onClick={() => setSelectedImage(cert.image)}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -106,7 +106,7 @@ export default function Certificates() {
               animate={{ scale: 1, y: 0 }}
               exit={{ scale: 0.9, y: 20 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-5xl w-full max-h-screen object-contain drop-shadow-[0_0_30px_rgba(14,165,233,0.3)] glow-effect rounded-2xl overflow-hidden"
+              className="relative max-w-5xl w-full max-h-screen object-contain drop-shadow-[0_0_30px_rgba(255,255,255,0.1)] rounded-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}

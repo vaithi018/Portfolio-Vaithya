@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #3c7de7;
+  --background: #000000;
   --foreground: #ededed;
   --accent: #ffffff;
   --accent-glow: rgba(255, 255, 255, 0.1);
-  --glass: #3c7de7;
-  --glass-border: #3c7de7;
+  --glass: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
 }
 
 @theme inline {

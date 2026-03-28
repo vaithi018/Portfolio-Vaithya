@@ -121,7 +121,7 @@ export default function Contact() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-[1.5]"
           >
-            <form onSubmit={handleSubmit} className="glassmorphism p-8 md:p-10 space-y-6 relative overflow-hidden">
+            <form onSubmit={handleSubmit} className="bg-[#0a0a0a] border border-white/10 p-8 md:p-10 space-y-6 relative overflow-hidden rounded-2xl">
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
               
               <div className="space-y-2">

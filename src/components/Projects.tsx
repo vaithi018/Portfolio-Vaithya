@@ -81,7 +81,7 @@ export default function Projects() {
             <motion.div 
               key={index}
               variants={item} 
-              className="group relative glassmorphism p-8 hover:border-accent/50 transition-all duration-300"
+              className="group relative bg-[#111111] border border-white/5 p-8 rounded-2xl hover:border-accent/50 transition-all duration-300"
             >
               <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               

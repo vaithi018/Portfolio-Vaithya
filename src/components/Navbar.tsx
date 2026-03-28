@@ -30,12 +30,12 @@ export default function Navbar() {
   return (
     <header
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "glassmorphism py-3" : "py-5 bg-transparent"
+        isScrolled ? "bg-[#0a0a0a] border-b border-white/5 py-3" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
         <a href="#" className="font-bold text-xl md:text-2xl text-accent glow-effect tracking-wider">
-          VAITHYA S
+          VAITHYA
         </a>
 
         {/* Desktop Nav */}

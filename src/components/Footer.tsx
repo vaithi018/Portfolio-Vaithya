@@ -4,13 +4,13 @@ import { Code2, Briefcase } from "lucide-react";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-white/10 glassmorphism rounded-none">
+    <footer className="border-t border-white/10 bg-[#0a0a0a] rounded-none">
       <div className="container mx-auto px-6 lg:px-12 py-12 flex flex-col md:flex-row items-center justify-between gap-6">
         
         <div className="flex flex-col items-center md:items-start">
-          <span className="text-xl font-bold tracking-wider text-accent glow-effect mb-2">VAITHYA S</span>
+          <span className="text-xl font-bold tracking-wider text-accent glow-effect mb-2">VAITHYA</span>
           <p className="text-foreground/50 text-sm">
-            © {new Date().getFullYear()} Vaithya S. All rights reserved.
+            © {new Date().getFullYear()} VAITHYA. All rights reserved.
           </p>
         </div>
 

@@ -31,7 +31,7 @@ export default function Hero() {
               transition={{ delay: 0.3, duration: 0.5 }}
               className="text-5xl md:text-7xl font-bold tracking-tight text-glow"
             >
-              Vaithya S
+              VAITHYA
             </motion.h1>
 
             <motion.h3 
@@ -40,7 +40,7 @@ export default function Hero() {
               transition={{ delay: 0.4, duration: 0.5 }}
               className="text-2xl md:text-3xl text-foreground/80 font-light"
             >
-              DevOps Engineer <span className="text-accent">&</span> Digital Marketing Enthusiast
+              DevOps Engineer
             </motion.h3>
 
             <motion.p 
@@ -49,7 +49,7 @@ export default function Hero() {
               transition={{ delay: 0.5, duration: 0.5 }}
               className="text-lg md:text-xl text-foreground/60 max-w-2xl mx-auto"
             >
-              "Building scalable systems & growing digital presence"
+              "Building scalable systems & infrastructure"
             </motion.p>
 
             <motion.div 

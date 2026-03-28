@@ -17,8 +17,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Vaithya S | Portfolio",
-  description: "DevOps Engineer and Digital Marketing Enthusiast",
+  title: "VAITHYA | Portfolio",
+  description: "DevOps Engineer | Portfolio",
   verification: {
     google: "IqUIqA9QQRWP74gxHG3uJRvNypQvkCNl_oPC-5uXPrw",
   },
