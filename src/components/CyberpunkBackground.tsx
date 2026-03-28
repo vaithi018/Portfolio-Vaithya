@@ -6,6 +6,10 @@ import { loadSlim } from "@tsparticles/slim";
 
 export default function MinimalBackground() {
   const particlesInit = useCallback(async (engine: any) => {
+    // Hack to fix 'engine.checkVersion is not a function' mismatch
+    if (typeof engine.checkVersion !== 'function') {
+      engine.checkVersion = () => true;
+    }
     await loadSlim(engine);
   }, []);
 
