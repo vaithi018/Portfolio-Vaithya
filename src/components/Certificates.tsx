@@ -37,8 +37,8 @@ export default function Certificates() {
       
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
@@ -52,16 +52,30 @@ export default function Certificates() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-          {certificates.map((cert, index) => (
+        <motion.div 
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            show: {
+              opacity: 1,
+              transition: {
+                staggerChildren: 0.15
+              }
+            }
+          }}
+        >
+          {certificates.map((cert) => (
             <motion.div
               key={cert.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.2, duration: 0.5 }}
-              whileHover={{ scale: 1.05 }}
-              className="relative group cursor-pointer aspect-[4/3] rounded-xl overflow-hidden bg-[#111111] border border-white/5 hover:border-accent/40"
+              variants={{
+                hidden: { opacity: 0, y: 20, scale: 0.95 },
+                show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
+              }}
+              whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
+              className="relative group cursor-pointer aspect-[4/3] rounded-xl overflow-hidden bg-[#111111] border border-white/5 hover:border-accent/40 hover:shadow-[0_15px_30px_-10px_rgba(0,216,255,0.2)]"
               onClick={() => setSelectedImage(cert.image)}
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -70,19 +84,19 @@ export default function Certificates() {
                 alt={cert.title}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
               />
-              <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <span className="text-white font-medium px-4 py-2 border border-white/20 rounded backdrop-blur-md">
+              <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 backdrop-blur-[2px]">
+                <span className="text-white font-medium px-4 py-2 border border-white/20 rounded-full backdrop-blur-md">
                   Click to View
                 </span>
               </div>
-              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/80 to-transparent">
+              <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/90 to-transparent">
                 <p className="text-white text-sm font-medium tracking-wide">
                   {cert.title}
                 </p>
               </div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
 
       {/* Lightbox / Modal */}

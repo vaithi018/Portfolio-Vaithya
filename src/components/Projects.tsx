@@ -55,10 +55,10 @@ export default function Projects() {
     <section id="projects" className="py-24 relative z-10">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
           <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4 inline-block relative">
@@ -81,36 +81,37 @@ export default function Projects() {
             <motion.div 
               key={index}
               variants={item} 
-              className="group relative bg-[#111111] border border-white/5 p-8 rounded-2xl hover:border-accent/50 transition-all duration-300"
+              whileHover={{ y: -10, transition: { duration: 0.3 } }}
+              className="group relative bg-[#111111] border border-white/5 p-8 rounded-2xl hover:border-accent/50 transition-all duration-300 hover:shadow-[0_20px_40px_-15px_rgba(0,216,255,0.15)]"
             >
               <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl"></div>
               
-              <div className="relative z-10">
+              <div className="relative z-10 flex flex-col h-full">
                 <div className="flex justify-between items-start mb-4">
                   <h3 className="text-2xl font-semibold group-hover:text-accent transition-colors duration-300">
                     {project.title}
                   </h3>
                   <div className="flex gap-3">
                     {project.github && project.github !== "#" && (
-                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent transition-colors" title="View Source">
+                      <a href={project.github} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent transition-colors hover:scale-110" title="View Source">
                         <Code2 size={20} />
                       </a>
                     )}
                     {project.live && project.live !== "#" && (
-                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent transition-colors" title="Live Preview">
+                      <a href={project.live} target="_blank" rel="noopener noreferrer" className="text-foreground/60 hover:text-accent transition-colors hover:scale-110" title="Live Preview">
                         <ExternalLink size={20} />
                       </a>
                     )}
                   </div>
                 </div>
                 
-                <p className="text-foreground/80 mb-6 min-h-[80px]">
+                <p className="text-foreground/80 mb-6 min-h-[80px] leading-relaxed">
                   {project.description}
                 </p>
                 
-                <div className="flex flex-wrap gap-2 mt-auto">
+                <div className="flex flex-wrap gap-2 mt-auto pt-4">
                   {project.techStack.map(tech => (
-                    <span key={tech} className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded">
+                    <span key={tech} className="text-xs font-mono text-accent bg-accent/10 px-2 py-1 rounded-md border border-accent/20">
                       {tech}
                     </span>
                   ))}

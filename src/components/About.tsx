@@ -23,8 +23,8 @@ export default function About() {
     <section id="about" className="py-24 relative">
       <div className="container mx-auto px-6 lg:px-12">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
@@ -46,7 +46,11 @@ export default function About() {
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {/* Card 1: DevOps */}
-          <motion.div variants={item} className="bg-[#111111] border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+          <motion.div 
+            variants={item} 
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="bg-[#111111] border border-white/5 p-8 rounded-2xl transition-all hover:border-accent/30 hover:shadow-[0_10px_30px_-10px_rgba(0,216,255,0.2)]"
+          >
             <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center text-accent mb-6 border border-white/10">
               <Server size={32} />
             </div>
@@ -56,7 +60,7 @@ export default function About() {
             </p>
             <div className="flex flex-wrap gap-2">
               {['AWS', 'Docker', 'Jenkins', 'Git', 'Linux'].map(skill => (
-                <span key={skill} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">
+                <span key={skill} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm hover:bg-white/10 transition-colors">
                   {skill}
                 </span>
               ))}
@@ -64,7 +68,11 @@ export default function About() {
           </motion.div>
 
           {/* Card 2: Frontend */}
-          <motion.div variants={item} className="bg-foreground/[0.02] border border-foreground/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+          <motion.div 
+            variants={item} 
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="bg-foreground/[0.02] border border-foreground/5 p-8 rounded-2xl transition-all hover:border-accent/30 hover:shadow-[0_10px_30px_-10px_rgba(0,216,255,0.2)]"
+          >
             <div className="w-14 h-14 bg-foreground/[0.03] rounded-xl flex items-center justify-center text-accent mb-6 border border-foreground/10">
               <Code size={32} />
             </div>
@@ -74,7 +82,7 @@ export default function About() {
             </p>
             <div className="flex flex-wrap gap-2">
               {['HTML', 'CSS', 'JavaScript', 'React', 'Next.js'].map(skill => (
-                <span key={skill} className="px-3 py-1 bg-foreground/[0.03] border border-foreground/10 rounded-full text-sm">
+                <span key={skill} className="px-3 py-1 bg-foreground/[0.03] border border-foreground/10 rounded-full text-sm hover:bg-white/10 transition-colors">
                   {skill}
                 </span>
               ))}
@@ -82,7 +90,11 @@ export default function About() {
           </motion.div>
 
           {/* Card 3: Digital Marketing */}
-          <motion.div variants={item} className="bg-foreground/[0.02] border border-foreground/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+          <motion.div 
+            variants={item} 
+            whileHover={{ y: -10, transition: { duration: 0.3 } }}
+            className="bg-foreground/[0.02] border border-foreground/5 p-8 rounded-2xl transition-all hover:border-accent/30 hover:shadow-[0_10px_30px_-10px_rgba(0,216,255,0.2)]"
+          >
             <div className="w-14 h-14 bg-foreground/[0.03] rounded-xl flex items-center justify-center text-accent mb-6 border border-foreground/10">
               <BarChart size={32} />
             </div>
@@ -92,7 +104,7 @@ export default function About() {
             </p>
             <div className="flex flex-wrap gap-2">
               {['SEO', 'Social Media Marketing', 'Google Analytics', 'Content Strategy'].map(skill => (
-                <span key={skill} className="px-3 py-1 bg-foreground/[0.03] border border-foreground/10 rounded-full text-sm">
+                <span key={skill} className="px-3 py-1 bg-foreground/[0.03] border border-foreground/10 rounded-full text-sm hover:bg-white/10 transition-colors">
                   {skill}
                 </span>
               ))}

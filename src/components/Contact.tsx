@@ -47,8 +47,8 @@ export default function Contact() {
     <section id="contact" className="py-24 relative">
       <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <motion.div
-           initial={{ opacity: 0, y: 30 }}
-           whileInView={{ opacity: 1, y: 0 }}
+           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
+           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
            viewport={{ once: true }}
            transition={{ duration: 0.8 }}
            className="text-center mb-16"
@@ -67,8 +67,8 @@ export default function Contact() {
           <div className="absolute top-0 right-0 w-64 h-64 bg-accent/10 rounded-full blur-[80px] -z-10"></div>
           
           <motion.div 
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: -50, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
             className="flex-1 space-y-8"
@@ -82,46 +82,43 @@ export default function Contact() {
             </div>
             
             <div className="space-y-6">
-              <div className="flex items-center gap-4 text-foreground/80 group">
-                <div className="bg-accent/10 p-3 rounded-full border border-accent/20 group-hover:bg-accent group-hover:text-white transition-all glow-effect">
-                  <Mail size={24} />
-                </div>
-                <a href="mailto:vaithya18@gmail.com" className="text-lg hover:text-accent transition-colors break-all">vaithya18@gmail.com</a>
-              </div>
-
-              <div className="flex items-center gap-4 text-foreground/80 group">
-                <div className="bg-accent/10 p-3 rounded-full border border-accent/20 group-hover:bg-accent group-hover:text-white transition-all glow-effect">
-                  <Phone size={24} />
-                </div>
-                <a href="tel:+918270428389" className="text-lg hover:text-accent transition-colors">8270428389</a>
-              </div>
-              
-              <div className="flex items-center gap-4 text-foreground/80 group">
-                <div className="bg-accent/10 p-3 rounded-full border border-accent/20 group-hover:bg-accent group-hover:text-white transition-all glow-effect">
-                  <Briefcase size={24} />
-                </div>
-                <a href="https://www.linkedin.com/in/vaithya" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-accent transition-colors break-all">linkedin.com/in/vaithya</a>
-              </div>
-
-              <div className="flex items-center gap-4 text-foreground/80 group">
-                <div className="bg-accent/10 p-3 rounded-full border border-accent/20 group-hover:bg-accent group-hover:text-white transition-all glow-effect">
-                  <Code2 size={24} />
-                </div>
-                <a href="https://github.com/vaithi018" target="_blank" rel="noopener noreferrer" className="text-lg hover:text-accent transition-colors break-all">github.com/vaithi018</a>
-              </div>
+              {[
+                { icon: <Mail size={24} />, label: "vaithya18@gmail.com", href: "mailto:vaithya18@gmail.com" },
+                { icon: <Phone size={24} />, label: "8270428389", href: "tel:+918270428389" },
+                { icon: <Briefcase size={24} />, label: "linkedin.com/in/vaithya", href: "https://www.linkedin.com/in/vaithya" },
+                { icon: <Code2 size={24} />, label: "github.com/vaithi018", href: "https://github.com/vaithi018" }
+              ].map((item, idx) => (
+                <motion.div 
+                  key={idx}
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.3 + idx * 0.1 }}
+                  className="flex items-center gap-4 text-foreground/80 group"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.1, backgroundColor: "var(--accent)", color: "#000" }}
+                    className="bg-accent/10 p-3 rounded-full border border-accent/20 transition-all glow-effect text-accent"
+                  >
+                    {item.icon}
+                  </motion.div>
+                  <a href={item.href} className="text-lg hover:text-accent transition-colors break-all font-medium">
+                    {item.label}
+                  </a>
+                </motion.div>
+              ))}
             </div>
-            
           </motion.div>
 
           {/* Form Side */}
           <motion.div 
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, x: 50, filter: "blur(10px)" }}
+            whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
             className="flex-[1.5]"
           >
-            <form onSubmit={handleSubmit} className="bg-[#0a0a0a] border border-white/10 p-8 md:p-10 space-y-6 relative overflow-hidden rounded-2xl">
+            <form onSubmit={handleSubmit} className="bg-[#0a0a0a] border border-white/10 p-8 md:p-10 space-y-6 relative overflow-hidden rounded-2xl shadow-2xl">
               <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-accent to-transparent opacity-50"></div>
               
               <div className="space-y-2">
@@ -163,10 +160,12 @@ export default function Contact() {
                 ></textarea>
               </div>
 
-              <button 
+              <motion.button 
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
                 type="submit" 
                 disabled={isSubmitting}
-                className="w-full flex justify-center items-center gap-2 bg-accent hover:bg-accent/90 focus:ring-4 focus:ring-accent/50 text-black font-medium py-3 px-6 rounded-lg transition-all disabled:opacity-70"
+                className="w-full flex justify-center items-center gap-2 bg-accent hover:bg-accent/90 focus:ring-4 focus:ring-accent/50 text-black font-semibold py-4 px-6 rounded-lg transition-all disabled:opacity-70 text-glow"
               >
                 {isSubmitting ? (
                   <>
@@ -174,14 +173,14 @@ export default function Contact() {
                     Sending...
                   </>
                 ) : isSuccess ? (
-                  "Message Sent!"
+                  "Message Sent Successfully!"
                 ) : (
                   <>
                     <Send size={18} />
                     Send Message
                   </>
                 )}
-              </button>
+              </motion.button>
             </form>
           </motion.div>
         </div>

@@ -20,22 +20,32 @@
   --font-mono: var(--font-geist-mono);
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-sans), sans-serif;
-  overflow-x: hidden;
-  line-height: 1.5;
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    @apply font-sans;
+  }
 }
 
-/* Subtle outer glow seen on live site */
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  box-shadow: inset 0 0 150px rgba(0, 216, 255, 0.15);
-  pointer-events: none;
-  z-index: 50;
+@layer utilities {
+  .blur-reveal {
+    filter: blur(8px);
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .blur-focus {
+    filter: blur(0px);
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  }
 }
 
 @layer utilities {

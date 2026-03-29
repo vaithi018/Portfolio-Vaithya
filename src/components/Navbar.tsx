@@ -28,26 +28,31 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header
+    <motion.header
+      initial={{ y: -100, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled ? "bg-[#0a0a0a] border-b border-white/5 py-3" : "py-5 bg-transparent"
+        isScrolled ? "bg-[#0a0a0a]/80 backdrop-blur-md border-b border-white/5 py-3" : "py-5 bg-transparent"
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <a href="#" className="font-bold text-xl md:text-2xl text-accent tracking-wider">
+        <a href="#" className="font-bold text-xl md:text-2xl text-accent tracking-wider text-glow">
           VAITHYA
         </a>
 
         {/* Desktop Nav */}
         <nav className="hidden md:flex gap-8">
           {navLinks.map((link) => (
-            <a
+            <motion.a
               key={link.name}
               href={link.href}
-              className="text-foreground/80 hover:text-accent transition-colors duration-200 text-sm tracking-wide"
+              whileHover={{ scale: 1.05 }}
+              className="text-foreground/80 hover:text-accent transition-colors duration-200 text-sm tracking-wide relative group py-1"
             >
               {link.name}
-            </a>
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-accent transition-all duration-300 group-hover:w-full"></span>
+            </motion.a>
           ))}
         </nav>
 
@@ -64,10 +69,10 @@ export default function Navbar() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="md:hidden absolute top-full left-0 w-full glassmorphism flex flex-col items-center py-6 gap-6 shadow-2xl"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            className="md:hidden absolute top-full left-0 w-full glassmorphism overflow-hidden flex flex-col items-center py-6 gap-6 shadow-2xl"
           >
             {navLinks.map((link) => (
               <a
@@ -82,6 +87,6 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-    </header>
+    </motion.header>
   );
 }
