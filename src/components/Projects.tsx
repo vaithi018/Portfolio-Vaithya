@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 import { ExternalLink, Code2 } from "lucide-react";
 
 const projects = [
@@ -32,11 +32,10 @@ const projects = [
     github: "https://github.com/vaithi018/Go-World",
     live: "https://go-world-beige.vercel.app"
   }
-
 ];
 
 export default function Projects() {
-  const container = {
+  const container: Variants = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
@@ -46,7 +45,7 @@ export default function Projects() {
     }
   };
 
-  const item = {
+  const item: Variants = {
     hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0, transition: { duration: 0.6 } }
   };
