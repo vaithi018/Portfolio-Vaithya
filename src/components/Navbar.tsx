@@ -34,7 +34,7 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-        <a href="#" className="font-bold text-xl md:text-2xl text-accent glow-effect tracking-wider">
+        <a href="#" className="font-bold text-xl md:text-2xl text-accent tracking-wider">
           VAITHYA
         </a>
 

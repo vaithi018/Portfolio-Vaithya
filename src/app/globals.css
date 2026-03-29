@@ -47,10 +47,10 @@ body::before {
   }
 
   .glow-effect {
-    box-shadow: 0 0 20px var(--accent-glow);
+    /* No box shadow for text */
   }
 
   .text-glow {
-    text-shadow: 0 0 10px var(--accent-glow);
+    text-shadow: 0 0 10px var(--accent-glow), 0 0 20px rgba(0, 216, 255, 0.3);
   }
 }
