@@ -2,9 +2,9 @@
 
 :root {
   --background: #000000;
-  --foreground: #ededed;
-  --accent: #ffffff;
-  --accent-glow: rgba(255, 255, 255, 0.1);
+  --foreground: #ffffff;
+  --accent: #00D8FF;
+  --accent-glow: rgba(0, 216, 255, 0.5);
   --glass: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
 }
@@ -28,18 +28,29 @@ body {
   line-height: 1.5;
 }
 
+/* Subtle outer glow seen on live site */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  box-shadow: inset 0 0 150px rgba(0, 216, 255, 0.15);
+  pointer-events: none;
+  z-index: 50;
+}
+
 @layer utilities {
   .glassmorphism {
     background-color: var(--glass);
     border: 1px solid var(--glass-border);
+    backdrop-filter: blur(10px);
     border-radius: 20px;
   }
 
   .glow-effect {
-    box-shadow: none;
+    box-shadow: 0 0 20px var(--accent-glow);
   }
 
   .text-glow {
-    text-shadow: none;
+    text-shadow: 0 0 10px var(--accent-glow);
   }
 }

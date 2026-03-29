@@ -64,8 +64,8 @@ export default function About() {
           </motion.div>
 
           {/* Card 2: Frontend */}
-          <motion.div variants={item} className="bg-[#111111] border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-            <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center text-accent mb-6 border border-white/10">
+          <motion.div variants={item} className="bg-foreground/[0.02] border border-foreground/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-14 h-14 bg-foreground/[0.03] rounded-xl flex items-center justify-center text-accent mb-6 border border-foreground/10">
               <Code size={32} />
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-glow">Frontend</h3>
@@ -74,7 +74,7 @@ export default function About() {
             </p>
             <div className="flex flex-wrap gap-2">
               {['HTML', 'CSS', 'JavaScript', 'React', 'Next.js'].map(skill => (
-                <span key={skill} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">
+                <span key={skill} className="px-3 py-1 bg-foreground/[0.03] border border-foreground/10 rounded-full text-sm">
                   {skill}
                 </span>
               ))}
@@ -82,8 +82,8 @@ export default function About() {
           </motion.div>
 
           {/* Card 3: Digital Marketing */}
-          <motion.div variants={item} className="bg-[#111111] border border-white/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
-            <div className="w-14 h-14 bg-white/5 rounded-xl flex items-center justify-center text-accent mb-6 border border-white/10">
+          <motion.div variants={item} className="bg-foreground/[0.02] border border-foreground/5 p-8 rounded-2xl hover:-translate-y-2 transition-transform duration-300">
+            <div className="w-14 h-14 bg-foreground/[0.03] rounded-xl flex items-center justify-center text-accent mb-6 border border-foreground/10">
               <BarChart size={32} />
             </div>
             <h3 className="text-2xl font-semibold mb-4 text-glow">Digital Marketing</h3>
@@ -92,7 +92,7 @@ export default function About() {
             </p>
             <div className="flex flex-wrap gap-2">
               {['SEO', 'Social Media Marketing', 'Google Analytics', 'Content Strategy'].map(skill => (
-                <span key={skill} className="px-3 py-1 bg-white/5 border border-white/10 rounded-full text-sm">
+                <span key={skill} className="px-3 py-1 bg-foreground/[0.03] border border-foreground/10 rounded-full text-sm">
                   {skill}
                 </span>
               ))}
