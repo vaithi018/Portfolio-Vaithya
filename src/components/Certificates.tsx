@@ -71,8 +71,14 @@ export default function Certificates() {
             <motion.div
               key={cert.id}
               variants={{
-                hidden: { opacity: 0, y: 20, scale: 0.95 },
-                show: { opacity: 1, y: 0, scale: 1, transition: { duration: 0.5 } }
+                hidden: { opacity: 0, y: 100, scale: 0.9, filter: "blur(10px)" },
+                show: { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1, 
+                  filter: "blur(0px)",
+                  transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } 
+                }
               }}
               whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
               className="relative group cursor-pointer aspect-[4/3] rounded-xl overflow-hidden bg-[#111111] border border-white/5 hover:border-accent/40 hover:shadow-[0_15px_30px_-10px_rgba(0,216,255,0.2)]"

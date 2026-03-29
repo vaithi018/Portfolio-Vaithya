@@ -1,37 +1,46 @@
 "use client";
 
-import { motion, Variants } from "framer-motion";
+import { motion, Variants, useScroll, useTransform } from "framer-motion";
 import { Download, Terminal, Mail, ChevronDown } from "lucide-react";
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const yParallax = useTransform(scrollY, [0, 500], [0, 100]);
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.3
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const nameVariants: Variants = {
+    hidden: { opacity: 0, scale: 0.8, y: 30 },
+    visible: { 
+      opacity: 1, scale: 1, y: 0,
+      transition: { 
+        type: "spring",
+        stiffness: 260,
+        damping: 20
       }
     }
   };
 
   const itemVariants: Variants = {
-    hidden: { opacity: 0, x: -30, filter: "blur(10px)" },
+    hidden: { opacity: 0, x: -50, filter: "blur(10px)" },
     visible: { 
-      opacity: 1, 
-      x: 0, 
-      filter: "blur(0px)",
+      opacity: 1, x: 0, filter: "blur(0px)",
       transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] }
     }
   };
 
   const imageVariants: Variants = {
-    hidden: { opacity: 0, x: 30, scale: 0.8, filter: "blur(10px)" },
+    hidden: { opacity: 0, x: 50, scale: 0.8, filter: "blur(10px)" },
     visible: { 
-      opacity: 1, 
-      x: 0, 
-      scale: 1,
-      filter: "blur(0px)",
+      opacity: 1, x: 0, scale: 1, filter: "blur(0px)",
       transition: { duration: 1, ease: [0.22, 1, 0.36, 1] }
     }
   };
@@ -51,9 +60,12 @@ export default function Hero() {
               <h2 className="text-lg md:text-xl text-accent tracking-[0.3em] uppercase font-medium">
                 Hello, I am
               </h2>
-              <h1 className="text-6xl md:text-8xl font-bold tracking-tight text-glow leading-tight">
+              <motion.h1 
+                variants={nameVariants}
+                className="text-6xl md:text-8xl font-bold tracking-tight text-glow leading-tight"
+              >
                 VAITHYA
-              </h1>
+              </motion.h1>
               <h3 className="text-2xl md:text-4xl text-foreground/80 font-light tracking-wide">
                 DevOps Engineer
               </h3>
@@ -63,7 +75,17 @@ export default function Hero() {
               variants={itemVariants}
               className="text-lg md:text-xl text-foreground/60 max-w-xl mx-auto lg:mx-0 leading-relaxed italic"
             >
-              "Building scalable systems & high-performance infrastructure with a focus on reliability and growth."
+              {`"Building scalable systems & high-performance infrastructure with a focus on reliability and growth."`.split(" ").map((word, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 1 + i * 0.05 }}
+                  className="inline-block mr-1.5"
+                >
+                  {word}
+                </motion.span>
+              ))}
             </motion.p>
 
             <motion.div 
@@ -90,6 +112,7 @@ export default function Hero() {
           {/* Profile Image Section */}
           <motion.div
             variants={imageVariants}
+            style={{ y: yParallax }}
             className="flex-1 flex justify-center lg:justify-end"
           >
             <div className="relative">
