@@ -31,6 +31,20 @@ const projects = [
     techStack: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
     github: "https://github.com/vaithi018/Go-World",
     live: "https://go-world-beige.vercel.app"
+  },
+  {
+    title: "Ticket Classification System",
+    description: "An automated system that intelligent classifies and routes customer support tickets for faster resolution times.",
+    techStack: ["Next.js", "Tailwind CSS", "TypeScript", "AI Integration"],
+    github: "#",
+    live: "https://ticket-classification-system.vercel.app"
+  },
+  {
+    title: "AI Resume Analyzer",
+    description: "A smart tool that evaluates resumes against job descriptions, providing comprehensive scoring and actionable optimization feedback.",
+    techStack: ["Next.js", "Tailwind CSS", "TypeScript", "AI Integration"],
+    github: "#",
+    live: "https://ai-resume-analyzer-gray-omega.vercel.app"
   }
 ];
 
